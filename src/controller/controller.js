@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const httpStatus = require('http-status');
 const User = require('../models/user');
 
-// const user = mongoose.model('User', userSchema);
 const findAll = async (ctx) => {
     const users = await User.find();
     ctx.body = { message: 'User list', data: users };
 };
 
+//add user
 const create = async (ctx) => {
     const { name, email } = ctx.request.body;
     const newUser = new User({ name, email });
